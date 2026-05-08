@@ -6,7 +6,16 @@ class SearchService:
     def __init__(self, documents, model):
         self.documents = documents
         self.model = model
-
+    # def __init__(self, documents, hf_token):
+        # self.documents = documents
+        # self.hf_token = hf_token
+        # self.api_url = "https://api-inference.huggingface.co/models/sentence-transformers/all-MiniLM-L6-v2"
+   
+    #  def query_embeddings(self, texts):
+    #     headers = {"Authorization": f"Bearer {self.hf_token}"}
+    #     response = requests.post(self.api_url, headers=headers, json={"inputs": texts})
+    #     return response.json()
+   
     def keyword_search(self, query, k=5):
         contents = [doc['content'] for doc in self.documents]
         vectorizer = TfidfVectorizer(stop_words='english')
@@ -21,6 +30,7 @@ class SearchService:
         contents = [doc['content'] for doc in self.documents]
         doc_embeddings = self.model.encode(contents, convert_to_tensor=True)
         query_embedding = self.model.encode(query, convert_to_tensor=True)
+        #  query_embedding = self.query_embeddings(query)
         cos_scores = util.cos_sim(query_embedding, doc_embeddings)[0]
         
         results = []

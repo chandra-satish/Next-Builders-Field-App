@@ -5,6 +5,8 @@ from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
 from sentence_transformers import SentenceTransformer
 from app.services.search_service import SearchService
+# Get HF_TOKEN
+# hf_token = os.getenv("HF_TOKEN")
 
 # Load environment variables from .env file
 load_dotenv()
@@ -35,7 +37,7 @@ model = SentenceTransformer('all-MiniLM-L6-v2')
 
 # Initialize Search Service
 search_service = SearchService(documents, model)
-
+# search_service = SearchService(documents, hf_token)
 @app.get("/")
 async def root():
     return {"message": "Next Construction Solutions API is running"}

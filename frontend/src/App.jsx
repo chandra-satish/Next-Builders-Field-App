@@ -12,7 +12,10 @@ function App() {
 
     setLoading(true);
     try {
-      const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
+      const apiBaseUrl =
+        // import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
+        import.meta.env.VITE_API_BASE_URL ||
+        "https://next-builder-api.onrender.com";
       const response = await fetch(
         `${apiBaseUrl}/search?q=${encodeURIComponent(query)}`,
       );
