@@ -1,16 +1,22 @@
 import json
 import os
+from dotenv import load_dotenv
 from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
 from sentence_transformers import SentenceTransformer
 from app.services.search_service import SearchService
 
+# Load environment variables from .env file
+load_dotenv()
+
 app = FastAPI()
 
-# Enable CORS for React
+# Enable CORS - allow local dev and production URL from env
+origins = os.getenv("ALLOWED_ORIGINS", "http://localhost:5173,http://localhost:3000").split(",")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -40,4 +46,6 @@ async def search(q: str = Query(..., min_length=1)):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    # Use PORT from environment variable (required for deployment)
+    port = int(os.getenv("PORT", 8080))
+    uvicorn.run(app, host="0.0.0.0", port=port)
