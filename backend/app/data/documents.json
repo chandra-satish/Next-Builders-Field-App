@@ -1,0 +1,27 @@
+[
+  {
+    "id": "doc_1",
+    "type": "Safety Regulation",
+    "content": "OSHA 1926.501(b)(1): Each employee on a walking/working surface (horizontal and vertical surface) with an unprotected side or edge which is 6 feet (1.8 m) or more above a lower level shall be protected from falling by the use of guardrail systems, safety net systems, or personal fall arrest systems."
+  },
+  {
+    "id": "doc_2",
+    "type": "Incident Report",
+    "content": "Site: West Creek Hangar. Date: Oct 12. A worker slipped on an icy patch near the north scaffolding tower. No serious injury, but requested review of winter footwear protocols and salting procedures for walkways."
+  },
+  {
+    "id": "doc_3",
+    "type": "Material Spec",
+    "content": "ASTM C150 Type I Portland Cement. General-purpose cement suitable for all uses where the special properties of other types are not required. Used in pavement, sidewalks, reinforced concrete buildings, bridges, railway structures, tanks, and reservoirs."
+  },
+  {
+    "id": "doc_4",
+    "type": "Procedure Manual",
+    "content": "Cold Weather Concreting: When air temperature is below 40°F (4°C), heaters must be used to ensure the concrete does not freeze before curing. Insulating blankets should be applied immediately after finishing."
+  },
+  {
+    "id": "doc_5",
+    "type": "Technical Bulletin",
+    "content": "Update regarding high-strength bolts. Effective immediately, switch from A325 Type 1 to A490 bolts for all primary steel structural connections on the Downtown Highrise project due to revised load calculations."
+  }
+]
